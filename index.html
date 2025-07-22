@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <script>
+      initStrudel();
+      document.getElementById('play').addEventListener('click', () => note('<c a f e>(3,8)').jux(rev).play());
+      document.getElementById('stop').addEventListener('click', () => hush());
+    </script>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+
+      <div class="nav-left">STONE</div>
+
+      <div class="logo">MATERIAL / STORY / TECH</div>
+
+      <div class="nav-right">STORIES</div>
+
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="site-body">
+    <div class="container body-grid">
+
+      <h1 class="headline">We tell <u>stories<br />through stone</u>,<br /> 
+        exploring themes on heritage <br />
+        and community
+      </h1>
+
+      <p class="strapline">
+        A creative agency for artists, communities, and councils who care where stories are carved.<br />Stone age meets render age.
+      </p>
+
+   <!-- <div id="app"></div>
+
+    
+
+    <button id="play">play</button>
+    <button id="stop">stop</button>-->
+    
+    </div>
+  
+  </body>
+</html>
