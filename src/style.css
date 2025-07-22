@@ -99,7 +99,7 @@ body {
 
   .site-header .container {
     display: flex;
-    flex-direction: column; /* Stack vertically */
+
     align-items: center;
     gap: 0.5rem;
   }
