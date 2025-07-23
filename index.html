@@ -56,14 +56,32 @@
   </main>
 
   <!-- Strudel Init -->
-  <script>
-    initStrudel();
-    document.getElementById('play').addEventListener('click', () =>
-      note('<c a f e>(3,8)').jux(rev).play()
-    );
-    document.getElementById('stop').addEventListener('click', () =>
-      hush()
-    );
-  </script>
+<script>
+  let strudelInitialized = false;
+
+  document.getElementById('play').addEventListener('click', () => {
+    if (!strudelInitialized) {
+      try {
+        initStrudel();
+        strudelInitialized = true;
+      } catch (e) {
+        console.error('Strudel init error:', e);
+      }
+    }
+    try {
+      note('<c a f e>(3,8)').jux(rev).play();
+    } catch (e) {
+      console.error('Play error:', e);
+    }
+  });
+
+  document.getElementById('stop').addEventListener('click', () => {
+    try {
+      hush();
+    } catch (e) {
+      console.error('Stop error:', e);
+    }
+  });
+</script>
 </body>
 </html>
