@@ -24,7 +24,10 @@
   <main class="site-body">
     <div class="container">
       <h1 class="headline">
-        We tell <u>stories<br />through stone</u>,<br />
+        We tell 
+        <u>stories</u>
+          <button class="tap-button" aria-label="tap">(tap)</button><br />
+        <u>through stone</u>,<br />
         exploring themes on <br/>heritage and community
       </h1>
 
@@ -70,6 +73,7 @@
     }
     try {
       note('<c a f e>(3,8)').jux(rev).play();
+
     } catch (e) {
       console.error('Play error:', e);
     }

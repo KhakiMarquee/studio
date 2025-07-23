@@ -33,7 +33,6 @@ body {
 
 /* Icons */
 .icon{
-  color: blue;
   align-items: center;
   display: flex;
   justify-content: center;
@@ -46,11 +45,28 @@ button{
   width: auto;
   padding: 4em 5em;
   margin: 0 auto;
+  transition: background-color, color 0.2s ease;
+  cursor: pointer;
+  color: blue;
+}
+
+/* (tap) Button Next to Headline Word */
+.tap-button {
+  all: unset; /* Remove default button styles */
+  font-style: italic;
+  font-size: 0.8em;
+  margin-left: 0.3em;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  top: -0.1em;
+  transition: color 0.2s ease;
+  text-transform: lowercase;
 }
 
 button:hover{
   background-color: blanchedalmond;
-  cursor: pointer;
+  color: black
 }
 
 /* Header */
