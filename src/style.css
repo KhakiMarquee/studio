@@ -21,16 +21,6 @@ body {
   line-height: 1.2; /* Improves readability */
   letter-spacing: 0em; /* Default letter spacing */
 }
-
-.container {
-  margin: 0 auto; /* Centers container */
-  padding: 1rem; /* Base padding */
-  display: grid;
-  grid-template-columns: repeat(12, 1fr); /* 12-column grid layout */
-  gap: 1rem; /* Spacing between columns */
-  align-items: center;
-}
-
 .main-text {
   transition: opacity 0.6s ease-in-out, max-height 0.6s ease-in-out, margin 0.6s ease-in-out;
   overflow: hidden; /* Prevent content overflow when collapsing */
@@ -82,6 +72,7 @@ button{
   transition: background-color, color 0.2s ease;
   cursor: pointer;
   color: blue;
+  margin-top: 10em;
 }
 
 /* (tap) Button Next to Headline Word */
@@ -99,13 +90,25 @@ button{
 }
 
 button:hover{
-  background-color: blanchedalmond;
+  background-color: #F7F1E3;
   color: black
 }
 
 /* Header */
 .site-header {
   padding: 0; /* Vertical spacing */  
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* Thin top border */
+  position:fixed;
+  z-index: 1000; /* Ensures header is above other content */
+}
+
+.container {
+  margin: 0 auto; /* Centers container */
+  padding: 1rem; /* Base padding */
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); /* 12-column grid layout */
+  gap: 1rem; /* Spacing between columns */
+  align-items: center;
 }
 
 .site-header .container {
@@ -122,6 +125,7 @@ button:hover{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
 }
 
 .logo {
@@ -139,37 +143,44 @@ button:hover{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  padding-right: 1rem; /* Adds space between nav items */
 }
 
 /* Main Content Area */
+.site-body {
+  position: relative; /* For absolute positioning of the new div */
+  min-height: calc(100vh - var(--header-height, 60px)); /* Adjust header height */
+  width: 100%;
+}
+
 .site-body .container {
   display: flex; /* Switch to flex for vertical alignment */
   flex-direction: column;
   justify-content: center; /* Vertically center */
   align-items: center; /* Horizontally center */
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
   padding: 4rem 2rem; /* Adds inner spacing for text */
   text-align: center;
 }
 
 .headline {
   font-size: 3rem;
-  font-weight: 200;
+  font-weight: 300;
   text-transform: uppercase;
-  margin-bottom: 1rem; /* Space between headline and strapline */
+  margin-bottom: 1rem; /* Space between headline and music_player */
 }
 
 .subhead {
   font-size: 1rem;
-  margin-bottom: 2rem; /* Space before buttons */
 }
 
-.strapline {
+.music_player {
   font-size: 1.2rem;
   justify-content: center;
-  gap: 2rem;
   flex-wrap: wrap;
-  overflow: hidden;
+  display:block;
+  width: 120%; /* Full width of the viewport */
+  min-height: calc(-100vh - var(--header-height, 60px)); /* Adjust header height */
 }
 
 /* Responsive Styles */
@@ -210,7 +221,7 @@ button:hover{
     margin-bottom: 2rem;
   }
 
-  .strapline {
+  .music_player {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
@@ -228,7 +239,6 @@ button:hover{
   height: 0;
   opacity: 0;
   transition: height 1s ease-in-out, opacity 1s ease-in-out;
-  border-top: 1px solid rgba(0, 0, 0, 0.2); /* Thin top border */
 }
 
 /* When active (for animation) */
