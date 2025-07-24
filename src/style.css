@@ -32,6 +32,7 @@ body {
   margin: 0;         /* Remove vertical margin */
 }
 
+
 .transition-space {
   background-color: #F7F1E3;
   width: 100%;
@@ -94,12 +95,21 @@ button:hover{
   color: black
 }
 
+/* Secondary Section */
+
+.secondary-text {
+  font-size:500px;
+  display:block;
+  position: relative;
+}
+
 /* Header */
 .site-header {
   padding: 0; /* Vertical spacing */  
   border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* Thin top border */
   position:fixed;
   z-index: 1000; /* Ensures header is above other content */
+  background-color: #fff;
 }
 
 .container {
@@ -151,6 +161,7 @@ button:hover{
   position: relative; /* For absolute positioning of the new div */
   min-height: calc(100vh - var(--header-height, 60px)); /* Adjust header height */
   width: 100%;
+  padding: 10% 0;
 }
 
 .site-body .container {
