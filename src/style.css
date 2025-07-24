@@ -42,12 +42,6 @@ body {
   margin: 0;         /* Remove vertical margin */
 }
 
-.site-body {
-  position: relative; /* For absolute positioning of the new div */
-  min-height: calc(100vh - var(--header-height, 60px)); /* Adjust header height */
-}
-
-
 .transition-space {
   background-color: #F7F1E3;
   width: 100%;
