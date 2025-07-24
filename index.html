@@ -23,18 +23,23 @@
   <!-- Main Content -->
   <main class="site-body">
     <div class="container">
-      <h1 class="headline">
-        We tell 
-        <u>stories</u>
-          <button class="tap-button" aria-label="tap">(tap)</button><br />
-        <u>through stone</u>,<br />
-        exploring themes on <br/>heritage and community
-      </h1>
+      <div class="main-text">
+        <h1 class="headline">
+          We tell 
+          <u>stories</u>
+            <button class="tap-button" aria-label="tap">(tap)</button><br />
+          <u>through stone</u>,<br />
+          exploring themes on <br/>heritage and community
+        </h1>
 
-      <p class="subhead">
-        A creative agency for artists, communities, and councils who care where stories are carved.<br />
-        Stone age meets render age.
-      </p>
+        <p class="subhead">
+          A creative agency for artists, communities, and councils who care where stories are carved.<br />
+          Stone age meets render age.
+        </p>
+      </div>
+
+      <!-- New Animated Div -->
+      <div class="transition-space"></div>
 
       <div class="strapline">
         <button id="play" aria-label="Play">
@@ -45,6 +50,7 @@
             </svg>
           </span>
         </button>
+
 
         <button id="stop" aria-label="Stop">
           <span class="icon">
@@ -86,6 +92,30 @@
       console.error('Stop error:', e);
     }
   });
+</script>
+
+<script>
+  const tapButton = document.querySelector('.tap-button');
+  const transitionSpace = document.querySelector('.transition-space');
+  const mainText = document.querySelector('.main-text');
+
+    tapButton.addEventListener('click', () => {
+      const isActive = transitionSpace.classList.toggle('active');
+      const container = document.querySelector('.site-body .container');
+      if (isActive) {
+        mainText.classList.add('hide');
+        container.classList.add('collapse');
+      } else {
+        mainText.classList.remove('hide');
+        container.classList.remove('collapse');
+      }
+    });
+  
+
+
+
+
+
 </script>
 </body>
 </html>

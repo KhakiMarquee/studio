@@ -31,6 +31,46 @@ body {
   align-items: center;
 }
 
+.main-text {
+  transition: opacity 0.6s ease-in-out, max-height 0.6s ease-in-out, margin 0.6s ease-in-out;
+  overflow: hidden; /* Prevent content overflow when collapsing */
+}
+
+.main-text.hide {
+  opacity: 0;
+  max-height: 0;     /* Collapse the space */
+  margin: 0;         /* Remove vertical margin */
+}
+
+.site-body {
+  position: relative; /* For absolute positioning of the new div */
+  min-height: calc(100vh - var(--header-height, 60px)); /* Adjust header height */
+}
+
+
+.transition-space {
+  background-color: #F7F1E3;
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  transition: height 1s ease-in-out, opacity 1s ease-in-out;
+  position: absolute; 
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.transition-space.active {
+  height: 100vh; /* Fill the available space */
+  opacity: 1;
+  overflow: hidden;
+}
+
+.container.collapse {
+  padding: 0;
+  margin: 0;
+}
+
 /* Icons */
 .icon{
   align-items: center;
@@ -135,6 +175,7 @@ button:hover{
   justify-content: center;
   gap: 2rem;
   flex-wrap: wrap;
+  overflow: hidden;
 }
 
 /* Responsive Styles */
@@ -184,4 +225,20 @@ button:hover{
   button {
     padding: 2em 3em; /* Scaled down button padding */
   }
+}
+
+/* Transition Space (New Div) */
+.transition-space {
+  background-color: #F7F1E3;
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  transition: height 1s ease-in-out, opacity 1s ease-in-out;
+  border-top: 1px solid rgba(0, 0, 0, 0.2); /* Thin top border */
+}
+
+/* When active (for animation) */
+.transition-space.active {
+  height: 50vh; /* Adjust to the height of previous content */
+  opacity: 1;
 }
