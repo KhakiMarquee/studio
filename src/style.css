@@ -53,7 +53,7 @@ body {
 
 .container.collapse {
   padding: 0;
-  margin: 0;
+  margin: 2em 0 0 0;
 }
 
 /* Icons */
@@ -73,7 +73,6 @@ button{
   transition: background-color, color 0.2s ease;
   cursor: pointer;
   color: blue;
-  margin-top: 10em;
 }
 
 /* (tap) Button Next to Headline Word */
@@ -101,6 +100,7 @@ button:hover{
   font-size:500px;
   display:block;
   position: relative;
+  padding-top: 0.5em; /* Space above the secondary text */
 }
 
 /* Header */
@@ -169,7 +169,7 @@ button:hover{
   flex-direction: column;
   justify-content: center; /* Vertically center */
   align-items: center; /* Horizontally center */
-  height: 100vh;
+  height: calc(100vh - 10%);
   padding: 4rem 2rem; /* Adds inner spacing for text */
   text-align: center;
 }
@@ -186,10 +186,10 @@ button:hover{
 }
 
 .music_player {
-  font-size: 1.2rem;
   justify-content: center;
   flex-wrap: wrap;
-  display:block;
+  display:none;
+  box-sizing: border-box;
   width: 120%; /* Full width of the viewport */
   min-height: calc(-100vh - var(--header-height, 60px)); /* Adjust header height */
 }
@@ -241,6 +241,18 @@ button:hover{
   button {
     padding: 2em 3em; /* Scaled down button padding */
   }
+
+  .container.collapse {
+  padding: 0;
+  margin: 7em 0 0 0;
+  }
+
+  .secondary-text {
+  font-size:500px;
+  display:block;
+  position: relative;
+  padding-top: 0.1em; /* Space above the secondary text */
+}
 }
 
 /* Transition Space (New Div) */
