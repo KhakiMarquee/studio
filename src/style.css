@@ -134,7 +134,7 @@ button:hover{
 .nav-left {
   grid-column: 1 / span 3; /* Left-aligned section */
   font-size: 0.9rem;
-  text-transform: uppercase;
+  text-transform: capitalize;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -151,7 +151,7 @@ button:hover{
 .nav-right {
   grid-column: 10 / span 3; /* Right-aligned section */
   font-size: 0.9rem;
-  text-transform: uppercase;
+  text-transform: capitalize;
   text-align: right;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -191,7 +191,7 @@ button:hover{
   flex-wrap: wrap;
   display:none;
   box-sizing: border-box;
-  width: 120%; /* Full width of the viewport */
+  width: 100%; /* Full width of the viewport */
   min-height: calc(-100vh - var(--header-height, 60px)); /* Adjust header height */
 }
 
@@ -208,12 +208,10 @@ button:hover{
   }
 
   .nav-left {
-    text-align: left;
     width: 100%;
   }  
 
   .nav-right {
-    text-align: right;
     width: 100%;
     padding:0px;
   }
