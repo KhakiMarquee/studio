@@ -21,40 +21,7 @@ body {
   line-height: 1.2; /* Improves readability */
   letter-spacing: 0em; /* Default letter spacing */
 }
-.main-text {
-  transition: opacity 0.6s ease-in-out, max-height 0.6s ease-in-out, margin 0.6s ease-in-out;
-  overflow: hidden; /* Prevent content overflow when collapsing */
-}
 
-.main-text.hide {
-  opacity: 0;
-  max-height: 0;     /* Collapse the space */
-  margin: 0;         /* Remove vertical margin */
-}
-
-
-.transition-space {
-  background-color: #F7F1E3;
-  width: 100%;
-  height: 0;
-  opacity: 0;
-  transition: height 1s ease-in-out, opacity 1s ease-in-out;
-  position: absolute; 
-  top: 0;
-  left: 0;
-  z-index: 0;
-}
-
-.transition-space.active {
-  height: 100vh; /* Fill the available space */
-  opacity: 1;
-  overflow: hidden;
-}
-
-.container.collapse {
-  padding: 0;
-  margin: 15em 0;
-}
 
 /* Icons */
 .icon{
@@ -92,18 +59,6 @@ button{
 button:hover{
   background-color: #F7F1E3;
   color: black
-}
-
-/* Secondary Section */
-
-.secondary-text {
-  font-size:500px;
-  display:block;
-  background-color:#fff;
-  width: 100vw;
-  height: auto;
-  padding: 0.5em 0;
-  z-index: 1000;
 }
 
 /* Header */
@@ -195,6 +150,76 @@ button:hover{
   min-height: calc(-100vh - var(--header-height, 60px)); /* Adjust header height */
 }
 
+/* Secondary Section */
+
+.secondary-text {
+  font-size:25em;
+  display:block;
+  background-color:#fff;
+  width: 100vw;
+  height: auto;
+  font-style: italic;
+  padding: 0.5em 0
+}
+
+
+.secondary-text ul {
+  list-style: none; /* Remove default list styles */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
+  display: block; /* Use flexbox for layout */
+  flex-wrap: wrap; /* Allow items to wrap */
+  font-weight: bolder;
+  overflow: hidden;
+  padding: 0.75em 0;
+}
+
+.secondary-text ul li:first-child {
+  font-style: normal; /* Normal font style for list items */
+  text-align: left; /* Align text to the left */
+}
+
+.secondary-text ul li:nth-last-child(3) {
+  text-align: right; /* Align text to the right */
+}
+
+
+/* Transition Space (New Div) */
+.transition-space {
+  background-color: rgba(0, 0, 0, 0.1); /* Semi-transparent background */
+  width: 100%;
+  height: 0; /* Initially collapsed */
+  opacity: 0;
+  transition: height 1s ease-in-out, opacity 1s ease-in-out;
+  position: absolute; 
+  top: 0;
+  left: 0;
+
+}
+
+/* When active (for animation) */
+.transition-space.active {
+  height: 100vh; /* Adjust to the height of previous content */
+  opacity: 1;
+}
+
+.main-text {
+  transition: opacity 0.6s ease-in-out, max-height 0.6s ease-in-out, margin 0.6s ease-in-out;
+  overflow: hidden; /* Prevent content overflow when collapsing */
+}
+
+.main-text.hide {
+  opacity: 0;
+  max-height: 0;     /* Collapse the space */
+  margin: 0;         /* Remove vertical margin */
+}
+
+.container.collapse {
+  padding: 0;
+  margin: 40em 0;
+}
+
+
 /* Responsive Styles */
 @media (max-width: 768px) {
   .container {
@@ -244,29 +269,20 @@ button:hover{
     padding: 2em 3em; /* Scaled down button padding */
   }
 
+.transition-space.active {
+  height: 40vh; /* Adjust to the height of previous content */
+  opacity: 1;
+}
+
   .container.collapse {
   padding: 0;
-  margin: 20em 0 0 0;
+  margin: 10em 0 0 0;
   }
 
   .secondary-text {
-  font-size:150px;
-  display: block;
-  padding: 1em 0;
-}
+  font-size: 8em;
+  padding: 2em 0;
 }
 
-/* Transition Space (New Div) */
-.transition-space {
-  background-color: #F7F1E3;
-  width: 100%;
-  height: 0;
-  opacity: 0;
-  transition: height 1s ease-in-out, opacity 1s ease-in-out;
 }
 
-/* When active (for animation) */
-.transition-space.active {
-  height: 50vh; /* Adjust to the height of previous content */
-  opacity: 1;
-}

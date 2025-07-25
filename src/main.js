@@ -1,6 +1,7 @@
 const tapButton = document.querySelector('.tap-button'); // Button to toggle the transition space
 const transitionSpace = document.querySelector('.transition-space');
 const mainText = document.querySelector('.main-text');
+const secondaryText = document.querySelector('.secondary-text');
 
 tapButton.addEventListener('click', () => {
     const isActive = transitionSpace.classList.toggle('active');
