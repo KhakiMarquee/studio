@@ -389,7 +389,7 @@ button:hover{
   .third-grid {
     grid-template-columns: 1fr;
     text-align: center;
-    height: 50vh
+    height: 60vh
   }
 
   .third-box {
@@ -413,9 +413,7 @@ button:hover{
   }
 
   /* Chromatic Aberration Animation */
-  .third-list {
-    text-align: center;
-  }
+ 
 
   #chromatic-text span {
     position: absolute;
@@ -435,8 +433,9 @@ button:hover{
   }
 
   #chromatic-text .main {
-    color: rgba(0, 0, 0, 0.9);
+    color: rgba(0, 0, 0, 0.2);
     z-index: 3; /* Main text stays on top */
+    position: relative;
   }
 
   /* Chromatic Aberration Animation */
