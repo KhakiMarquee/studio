@@ -176,7 +176,6 @@ button:hover{
 }
 
 .secondary-text ul li:first-child {
-  font-style: normal; /* Normal font style for list items */
   text-align: left; /* Align text to the left */
 }
 
@@ -313,7 +312,7 @@ button:hover{
 
 /* Right list */
 .third-list p {
-  margin: 0 0 0.5rem 0;
+
   text-align: right;
   font-weight: bold;
 }
@@ -379,7 +378,7 @@ button:hover{
     }
 
     .secondary-text {
-    font-size: 6em;
+    font-size: 4em;
   }
 
   .third-section {
@@ -401,6 +400,11 @@ button:hover{
     text-align: center;
     font-size: 1.5rem;
   }
+
+    .third-list {
+      overflow:auto;
+      height:auto;
+    }
   
   .third-list p {
     font-size: 5rem;
@@ -433,7 +437,7 @@ button:hover{
   }
 
   #chromatic-text .main {
-    color: rgba(0, 0, 0, 0.2);
+    color: rgba(0, 0, 0, 0.8);
     z-index: 3; /* Main text stays on top */
     position: relative;
   }
