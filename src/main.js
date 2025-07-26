@@ -84,7 +84,49 @@ let strudelInitialized = false; // Flag to check if Strudel is initialized
     }
     });
 
+//animate third section
+function isMobile() {
+  return window.innerWidth <= 768 || 'ontouchstart' in window;
+}
 
+if (isMobile()) {
+const textEl = document.getElementById("chromatic-text");
+const textContent = textEl.textContent.toUpperCase(); // Capitalize text
+
+// Create 2 extra layers (red and cyan)
+textEl.innerHTML = `
+  <span class="red">${textContent}</span>
+  <span class="cyan">${textContent}</span>
+  <span class="main">${textContent}</span>
+`;
+
+const redLayer = textEl.querySelector('.red');
+const cyanLayer = textEl.querySelector('.cyan');
+
+let time = 0;
+function animate() {
+  time += 0.05;
+
+  // Horizontal oscillation
+  const x = Math.sin(time) * 10;  // Horizontal shift
+  textEl.style.transform = `translateX(${x}px)`;
+
+  // Chromatic aberration offsets
+  const rOffsetX = Math.sin(time * 2) * 3;
+  const rOffsetY = Math.cos(time * 2) * 3;
+
+  const cOffsetX = Math.cos(time * 2) * -3;
+  const cOffsetY = Math.sin(time * 2) * -3;
+
+  redLayer.style.transform = `translate(${rOffsetX}px, ${rOffsetY}px)`;
+  cyanLayer.style.transform = `translate(${cOffsetX}px, ${cOffsetY}px)`;
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+}
 
 });
 

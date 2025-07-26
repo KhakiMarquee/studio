@@ -316,7 +316,6 @@ button:hover{
   margin: 0 0 0.5rem 0;
   text-align: right;
   font-weight: bold;
-  text-transform: capitalize;
 }
 
 
@@ -402,54 +401,84 @@ button:hover{
     text-align: center;
     font-size: 1.5rem;
   }
-.third-list p {
-  font-size: 5rem;
-  color: rgba(0, 0, 0, 0.8);
-  line-height: 55%;
-  position: relative;
-  animation: chromatic-glitch 1.5s infinite linear, move-horizontal 6s infinite ease-in-out;
-  transform: translateZ(0); /* Force GPU acceleration */
-  will-change: text-shadow, transform;
-}
+  
+  .third-list p {
+    font-size: 5rem;
+    color: rgba(0, 0, 0, 0.8);
+    line-height: 55%;
+    position: relative;
+    animation: chromatic-glitch 1.5s infinite linear, move-horizontal 6s infinite ease-in-out;
+    transform: translateZ(0); /* Force GPU acceleration */
+    will-change: text-shadow, transform;
+  }
 
-/* Chromatic Aberration Animation */
-@keyframes chromatic-glitch {
-  0% {
-    text-shadow:
-      2px 2px 0 rgba(255, 0, 0, 0.2),
-      -2px -2px 0 rgba(0, 255, 255, 0.2),
-      4px 4px 0 rgba(0, 0, 255, 0.2);
+  /* Chromatic Aberration Animation */
+  .third-list {
+    text-align: center;
   }
-  50% {
-    text-shadow:
-      -2px 2px 0 rgba(255, 0, 0, 0.2),
-      2px -2px 0 rgba(0, 255, 255, 0.2),
-      -4px 4px 0 rgba(0, 0, 255, 0.2);
-  }
-  100% {
-    text-shadow:
-      2px 2px 0 rgba(255, 0, 0, 0.2),
-      -2px -2px 0 rgba(0, 255, 255, 0.2),
-      4px 4px 0 rgba(0, 0, 255, 0.2);
-  }
-}
 
-/* Horizontal Movement */
-@keyframes move-horizontal {
-  0%, 100% {
-    transform: translateX(0);
+  #chromatic-text span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
   }
-  50% {
-    transform: translateX(30px); /* Adjust distance */
+
+  #chromatic-text .red {
+    color: rgba(255, 0, 0, 0.2);
+    z-index: 1;
   }
-}
-  .third-list p:first-of-type {
-    text-align: left;
-    width:100%;
+
+  #chromatic-text .cyan {
+    color: rgba(0, 255, 255, 0.2);
+    z-index: 2;
   }
-  .third-list p:last-of-type {
-    text-align: right;
+
+  #chromatic-text .main {
+    color: rgba(0, 0, 0, 0.9);
+    z-index: 3; /* Main text stays on top */
+    position: relative;
   }
+
+  /* Chromatic Aberration Animation */
+  @keyframes chromatic-glitch {
+    0% {
+      text-shadow:
+        2px 2px 0 rgba(255, 0, 0, 0.2),
+        -2px -2px 0 rgba(0, 255, 255, 0.2),
+        4px 4px 0 rgba(0, 0, 255, 0.2);
+    }
+    50% {
+      text-shadow:
+        -2px 2px 0 rgba(255, 0, 0, 0.2),
+        2px -2px 0 rgba(0, 255, 255, 0.2),
+        -4px 4px 0 rgba(0, 0, 255, 0.2);
+    }
+    100% {
+      text-shadow:
+        2px 2px 0 rgba(255, 0, 0, 0.2),
+        -2px -2px 0 rgba(0, 255, 255, 0.2),
+        4px 4px 0 rgba(0, 0, 255, 0.2);
+    }
+  }
+
+  /* Horizontal Movement */
+  @keyframes move-horizontal {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(30px); /* Adjust distance */
+    }
+  }
+    .third-list p:first-of-type {
+      text-align: left;
+      width:100%;
+    }
+    .third-list p:last-of-type {
+      text-align: right;
+    }
 
 }
 
