@@ -35,7 +35,6 @@ button{
   border: 0px;
   background: transparent;
   width: auto;
-  padding: 4em 5em;
   margin: 0 auto;
   transition: background-color, color 0.2s ease;
   cursor: pointer;
@@ -57,7 +56,7 @@ button{
 }
 
 button:hover{
-  background-color: #F7F1E3;
+  text-decoration: line-through;
   color: black
 }
 
@@ -72,7 +71,6 @@ button:hover{
 
 .container {
   margin: 0 auto; /* Centers container */
-  padding: 1rem; /* Base padding */
   display: grid;
   grid-template-columns: repeat(12, 1fr); /* 12-column grid layout */
   gap: 1rem; /* Spacing between columns */
@@ -81,6 +79,7 @@ button:hover{
 
 .site-header .container {
   display: grid;
+  padding: 1rem 2rem;
   grid-template-columns: repeat(12, 1fr); /* Matches main grid */
   align-items: center;
   width: 100vw;
@@ -125,19 +124,20 @@ button:hover{
   justify-content: center; /* Vertically center */
   align-items: center; /* Horizontally center */
   height: calc(100vh - 10%);
-  padding: 4rem 2rem; /* Adds inner spacing for text */
   text-align: center;
 }
 
 .headline {
   font-size: 3rem;
-  font-weight: 300;
+  font-weight: lighter;
   text-transform: uppercase;
   margin-bottom: 1rem; /* Space between headline and music_player */
+  font-style: italic;
 }
 
 .subhead {
   font-size: 1rem;
+  font-weight: bolder;
 }
 
 .music_player {
@@ -157,18 +157,18 @@ button:hover{
   background-color:#fff;
   width: 100vw;
   height: auto;
-  font-style: italic;
-  padding: 15% 0;
+  padding: 0px;
 }
 
 .secondary-text ul {
   list-style: none; /* Remove default list styles */
-  padding: 0; /* Remove padding */
+  padding: 5% 0px; /* Remove padding */
   margin: 0; /* Remove margin */
   display: block; /* Use flexbox for layout */
   flex-wrap: wrap; /* Allow items to wrap */
   font-weight: bolder;
   overflow: hidden;
+  font-style: italic;
 }
 
 .secondary-text ul li{
@@ -180,7 +180,7 @@ button:hover{
   text-align: left; /* Align text to the left */
 }
 
-.secondary-text ul li:nth-last-child(3) {
+.secondary-text ul li:nth-last-child(2) {
   text-align: right; /* Align text to the right */
 }
 
@@ -193,7 +193,6 @@ button:hover{
   transition: height 1s ease-in-out, opacity 1s ease-in-out;
   top: 0;
   left: 0;
-
 }
 
 /* When active (for animation) */
@@ -205,7 +204,7 @@ button:hover{
 .main-text {
   transition: opacity 0.6s ease-in-out, max-height 0.6s ease-in-out, margin 0.6s ease-in-out;
   overflow: hidden; /* Prevent content overflow when collapsing */
-  padding:20% 0 5% 0;
+  padding:20% 0 30% 0;
 }
 
 .main-text.hide {
@@ -251,6 +250,74 @@ button:hover{
   display: flex;
 }
 
+/* Close button */
+#close-three-container {
+  position: absolute;
+  right: 20px;
+  top:4em;
+  z-index: 2;
+  background-color: none;
+  color: #000;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Third Section */
+.third-section {
+  background-color: rgba(0, 0, 0, 0.1); /* Light gray background */
+  border-top:rgba(0, 0, 0, 0.2) 1px solid; /* Top border */
+  padding: 0% 5%;
+  width: 100%;
+  font-size: 0.1em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+}
+
+.third-section span {
+  text-transform: lowercase;
+}
+
+.third-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100vh
+}
+
+/* Left black box */
+.third-box {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* 16:9 aspect ratio */
+  background-color: #000;
+  border-radius: 6px;
+}
+
+/* Center text */
+.third-text p {
+  margin: 0;
+  text-align: right;
+  letter-spacing: 0.02em;
+  font-weight: lighter;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+/* Right list */
+.third-list p {
+  margin: 0 0 0.5rem 0;
+  text-align: right;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
 
 
 
@@ -258,6 +325,10 @@ button:hover{
 @media (max-width: 768px) {
   .container {
     grid-template-columns: repeat(6, 1fr); /* Simpler grid for mobile */
+  }
+
+  .site-header .container {
+     padding: 1rem 2rem;
   }
 
   .logo {
@@ -276,7 +347,6 @@ button:hover{
   }
 
   .site-body .container {
-    padding: 5rem 1.5rem; /* Reduced padding for small screens */
     text-align: center;
     justify-content: center;
   }
@@ -299,22 +369,40 @@ button:hover{
     gap: 1rem;
   }
 
-  button {
-    padding: 2em 3em; /* Scaled down button padding */
+  .transition-space.active {
+    height: 40vh; /* Adjust to the height of previous content */
+    opacity: 1;
   }
 
-.transition-space.active {
-  height: 40vh; /* Adjust to the height of previous content */
-  opacity: 1;
-}
+    .container.collapse {
+    padding: 0;
+    }
 
-  .container.collapse {
-  padding: 0;
+    .secondary-text {
+    font-size: 6em;
   }
 
-  .secondary-text {
-  font-size: 6em;
-}
+  .third-section {
+    padding: 10% 2%;
+    font-size: 0.1em;
+  }
+
+  .third-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    height: 40vh
+  }
+
+  .third-box {
+    max-width: 200px;
+    margin: 0 auto 1.5rem auto;
+  }
+
+  .third-text p,
+  .third-list p {
+    text-align: center;
+    font-size: 2rem;
+  }
 
 }
 

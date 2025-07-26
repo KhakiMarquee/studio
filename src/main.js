@@ -1,56 +1,65 @@
 document.addEventListener('DOMContentLoaded', () => {
 const triggerText = document.getElementById('hoverText');
-  const overlay = document.getElementById('overlay');
-  let overlayActive = false; // track overlay state
+const overlay = document.getElementById('overlay');
+let overlayActive = false; // track overlay state
 
-  if (triggerText && overlay) {
-    // Show overlay on hover
-    triggerText.addEventListener('mouseenter', () => {
-      overlay.classList.add('show');
-      overlayActive = true;
-    });
+if (triggerText && overlay) {
+  const showOverlay = () => {
+    overlay.classList.add('show');
+    overlayActive = true;
+  };
 
-    // Hide overlay on mouse leave
-    triggerText.addEventListener('mouseleave', () => {
-      overlay.classList.remove('show');
-      overlayActive = false;
-    });
+  const hideOverlay = () => {
+    overlay.classList.remove('show');
+    overlayActive = false;
+  };
 
-    // Toggle overlay on click
-    triggerText.addEventListener('click', (e) => {
-      e.stopPropagation(); // Stop click event from affecting other handlers
-      overlayActive = !overlayActive;
-      overlay.classList.toggle('show', overlayActive);
-    });
+  // For desktop (mouse events)
+  triggerText.addEventListener('mouseenter', showOverlay);
+  triggerText.addEventListener('mouseleave', hideOverlay);
 
-    // Hide overlay when clicking directly on it
-    overlay.addEventListener('click', (e) => {
-      e.stopPropagation();
-      overlay.classList.remove('show');
-      overlayActive = false;
-    });
-  }
+  // For mobile (touch and click events)
+  triggerText.addEventListener('touchstart', (e) => {
+    e.preventDefault(); // Prevent 300ms delay / click ghosting
+    overlayActive = !overlayActive;
+    overlay.classList.toggle('show', overlayActive);
+  });
 
-  // --- Tap Button Functionality ---
-  const tapButton = document.querySelector('.tap-button');
-  const transitionSpace = document.querySelector('.transition-space');
-  const mainText = document.querySelector('.main-text');
-  const secondaryText = document.querySelector('.secondary-text');
-  const container = document.querySelector('.site-body .container');
+  triggerText.addEventListener('click', (e) => {
+    e.stopPropagation();
+    overlayActive = !overlayActive;
+    overlay.classList.toggle('show', overlayActive);
+  });
 
-  if (tapButton && transitionSpace && mainText && container) {
-    tapButton.addEventListener('click', (e) => {
-      e.stopPropagation(); // Prevent triggering overlay logic
-      const isActive = transitionSpace.classList.toggle('active');
-      if (isActive) {
-        mainText.classList.add('hide');
-        container.classList.add('collapse');
-      } else {
-        mainText.classList.remove('hide');
-        container.classList.remove('collapse');
-      }
-    });
-  }
+  // Hide overlay when clicking/tapping on it
+  overlay.addEventListener('click', (e) => {
+    e.stopPropagation();
+    hideOverlay();
+  });
+}
+// --- Tap Button Functionality ---
+const tapButton = document.querySelector('.tap-button');
+const transitionSpace = document.querySelector('.transition-space');
+const mainText = document.querySelector('.main-text');
+const secondaryText = document.querySelector('.secondary-text');
+const container = document.querySelector('.site-body .container');
+const closeContainer = document.querySelector('#close-three-container');
+
+if (tapButton && transitionSpace && mainText && container) {
+  tapButton.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isActive = transitionSpace.classList.toggle('active');
+    mainText.classList.toggle('hide', isActive);
+    container.classList.toggle('collapse', isActive);
+  });
+
+  closeContainer.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isInActive = transitionSpace.classList.remove('active');
+    mainText.classList.toggle('hide', isInActive);
+    container.classList.toggle('collapse', isInActive);
+  });
+}
 
 
 
