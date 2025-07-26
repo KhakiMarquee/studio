@@ -137,7 +137,7 @@ button:hover{
 
 .subhead {
   font-size: 1rem;
-  font-weight: bolder;
+  font-weight:normal;
 }
 
 .music_player {
@@ -152,7 +152,7 @@ button:hover{
 /* Secondary Section */
 
 .secondary-text {
-  font-size:20em;
+  font-size:17em;
   display:block;
   background-color:#fff;
   width: 100vw;
@@ -227,6 +227,7 @@ button:hover{
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: rgba(0, 0, 0, 0.2) 1px solid; /* Optional border for visual separation */
 }
 
 /* Fullscreen overlay */
@@ -384,13 +385,12 @@ button:hover{
 
   .third-section {
     padding: 10% 2%;
-    font-size: 0.1em;
   }
 
   .third-grid {
     grid-template-columns: 1fr;
     text-align: center;
-    height: 40vh
+    height: 50vh
   }
 
   .third-box {
@@ -398,10 +398,55 @@ button:hover{
     margin: 0 auto 1.5rem auto;
   }
 
-  .third-text p,
-  .third-list p {
+  .third-text p {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
+  }
+.third-list p {
+  font-size: 5rem;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 55%;
+  position: relative;
+  animation: chromatic-glitch 1.5s infinite linear, move-horizontal 6s infinite ease-in-out;
+}
+
+/* Chromatic Aberration Animation */
+@keyframes chromatic-glitch {
+  0% {
+    text-shadow:
+      2px 2px 0 rgba(255, 0, 0, 0.2),
+      -2px -2px 0 rgba(0, 255, 255, 0.2),
+      4px 4px 0 rgba(0, 0, 255, 0.2);
+  }
+  50% {
+    text-shadow:
+      -2px 2px 0 rgba(255, 0, 0, 0.2),
+      2px -2px 0 rgba(0, 255, 255, 0.2),
+      -4px 4px 0 rgba(0, 0, 255, 0.2);
+  }
+  100% {
+    text-shadow:
+      2px 2px 0 rgba(255, 0, 0, 0.2),
+      -2px -2px 0 rgba(0, 255, 255, 0.2),
+      4px 4px 0 rgba(0, 0, 255, 0.2);
+  }
+}
+
+/* Horizontal Movement */
+@keyframes move-horizontal {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(30px); /* Adjust distance */
+  }
+}
+  .third-list p:first-of-type {
+    text-align: left;
+    width:100%;
+  }
+  .third-list p:last-of-type {
+    text-align: right;
   }
 
 }
