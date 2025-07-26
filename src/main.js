@@ -85,11 +85,6 @@ let strudelInitialized = false; // Flag to check if Strudel is initialized
     });
 
 //animate third section
-function isMobile() {
-  return window.innerWidth <= 768 || 'ontouchstart' in window;
-}
-
-if (isMobile()) {
 const textEl = document.getElementById("chromatic-text");
 const textContent = textEl.textContent.toUpperCase(); // Capitalize text
 
@@ -126,7 +121,7 @@ function animate() {
 
 animate();
 
-}
+
 
 });
 
