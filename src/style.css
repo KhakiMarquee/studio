@@ -371,7 +371,7 @@ button:hover{
   }
 
   .transition-space.active {
-    height: 40vh; /* Adjust to the height of previous content */
+    height: 50vh; /* Adjust to the height of previous content */
     opacity: 1;
   }
 
